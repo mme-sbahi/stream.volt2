@@ -43,7 +43,7 @@ export default function CompatibleDevices() {
             <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(-90deg, #0d0d0d, transparent)" }} />
             
             <div className="overflow-hidden">
-              <div className="flex gap-4 animate-[scroll_25s_linear_infinite]">
+              <div className="flex gap-4 animate-[scroll_10s_linear_infinite]">
                 {[...DEVICES, ...DEVICES, ...DEVICES, ...DEVICES].map((device, i) => (
                   <div
                     key={i}

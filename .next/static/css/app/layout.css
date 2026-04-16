@@ -1221,8 +1221,8 @@ video {
     transform: translateX(-50%);
   }
 }
-.animate-\[scroll_25s_linear_infinite\] {
-  animation: scroll 25s linear infinite;
+.animate-\[scroll_15s_linear_infinite\] {
+  animation: scroll 15s linear infinite;
 }
 @keyframes bounce {
 
@@ -1257,6 +1257,19 @@ video {
 }
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes scroll {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-\[scroll_10s_linear_infinite\] {
+  animation: scroll 10s linear infinite;
 }
 .cursor-default {
   cursor: default;
