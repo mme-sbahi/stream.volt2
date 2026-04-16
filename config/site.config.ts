@@ -302,6 +302,6 @@ export const NAV_LINKS = [
   { href: "#features", label: "Features" },
   { href: "#content", label: "Content" },
   { href: "#pricing", label: "Pricing" },
-  { href: "#devices", label: "Devices" },
+  { href: "#compatible-devices", label: "Devices" },
   { href: "#faq", label: "FAQ" },
 ] as const;

@@ -895,6 +895,10 @@ video {
 .m-5 {
   margin: 1.25rem;
 }
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
 .mx-6 {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
@@ -1116,6 +1120,9 @@ video {
 .w-full {
   width: 100%;
 }
+.min-w-\[120px\] {
+  min-width: 120px;
+}
 .min-w-\[177\.78vh\] {
   min-width: 177.78vh;
 }
@@ -1211,19 +1218,6 @@ video {
 .animate-\[scrollDown_1\.5s_ease-in-out_infinite\] {
   animation: scrollDown 1.5s ease-in-out infinite;
 }
-@keyframes scroll {
-
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
-.animate-\[scroll_15s_linear_infinite\] {
-  animation: scroll 15s linear infinite;
-}
 @keyframes bounce {
 
   0%, 100% {
@@ -1257,19 +1251,6 @@ video {
 }
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-@keyframes scroll {
-
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
-.animate-\[scroll_10s_linear_infinite\] {
-  animation: scroll 10s linear infinite;
 }
 .cursor-default {
   cursor: default;
@@ -1373,6 +1354,9 @@ video {
 }
 .scroll-smooth {
   scroll-behavior: smooth;
+}
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 .rounded-2xl {
   border-radius: 1rem;
@@ -1501,6 +1485,9 @@ video {
 }
 .bg-white\/40 {
   background-color: rgb(255 255 255 / 0.4);
+}
+.bg-white\/\[0\.03\] {
+  background-color: rgb(255 255 255 / 0.03);
 }
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
@@ -2258,6 +2245,13 @@ body {
   100% { transform: translateX(-50%); }
 }
 
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
@@ -2443,11 +2437,6 @@ body {
 }
 
 .group:hover .group-hover\:text-\[\#ffffff\] {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.group:hover .group-hover\:text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }

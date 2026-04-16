@@ -306,6 +306,13 @@ body {
   100% { transform: translateX(-50%); }
 }
 
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
