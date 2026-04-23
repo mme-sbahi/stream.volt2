@@ -33,15 +33,15 @@ export default function CompatibleDevices() {
           </p>
         </div>
 
-        <div className="overflow-hidden">
+        <div className="overflow-hidden py-4">
           <div className="marquee-track">
             {REPEATS.map((device, i) => (
               <div
                 key={i}
-                className="inline-flex flex-col items-center gap-2 mx-3 p-4 rounded-xl border border-white/5 bg-white/[0.03] min-w-[120px] text-[#8a8a8a] hover:text-[#ffffff] cursor-pointer"
+                className="inline-flex flex-col items-center gap-4 mx-8 p-8 rounded-3xl border border-white/5 bg-white/[0.03] min-w-[200px] text-[#8a8a8a] hover:text-[#ffffff] cursor-pointer transition-all hover:bg-white/[0.06] hover:scale-110 hover:shadow-xl hover:shadow-[#00A8E1]/10"
               >
-                <span className="text-2xl">{device.icon}</span>
-                <span className="text-xs font-medium whitespace-nowrap">{device.name}</span>
+                <span className="text-6xl">{device.icon}</span>
+                <span className="text-base font-semibold whitespace-nowrap">{device.name}</span>
               </div>
             ))}
           </div>

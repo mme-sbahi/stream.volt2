@@ -77,7 +77,7 @@ export default function StopOverpaying() {
             
             <div className="p-8 pt-16 relative">
               <span className="inline-block text-xs font-bold tracking-widest uppercase text-[#00A8E1] mb-6">
-                With StreamVault
+                With PrimeStream
               </span>
               
               <div className="mb-8">

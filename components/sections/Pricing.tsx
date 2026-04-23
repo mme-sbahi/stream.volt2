@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useReveal } from "@/components/ui/useReveal";
 import { PLANS } from "@/config/site.config";
 
@@ -73,6 +74,14 @@ export default function Pricing() {
 function PricingCard({ plan, index }: { plan: typeof PLANS[number]; index: number }) {
   const savings = Math.round(((plan.originalPrice - plan.price) / plan.originalPrice) * 100);
 
+  const deviceOptions = [
+    { label: "1 Device", price: plan.price },
+    { label: "2 Devices", price: plan.price + 8 },
+    { label: "3 Devices", price: plan.price + 15 },
+    { label: "4 Devices", price: plan.price + 20 },
+  ];
+  const [selectedDevice, setSelectedDevice] = useState(0);
+
   return (
     <div
       className={`reveal reveal-delay-${index + 1} relative flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02] ${
@@ -89,47 +98,43 @@ function PricingCard({ plan, index }: { plan: typeof PLANS[number]; index: numbe
           : {}
       }
     >
-      {/* Popular badge */}
       {plan.popular && (
         <div
-          className="absolute top-0 left-0 right-0 py-2 text-center text-xs font-black tracking-widest uppercase text-white"
+          className="absolute top-0 left-0 right-0 py-1.5 text-center text-[10px] font-black tracking-widest uppercase text-white"
           style={{ background: "var(--gradient-cta)" }}
         >
           ⭐ Most Popular — Best Value
         </div>
       )}
 
-      <div className={`p-7 flex flex-col h-full ${plan.popular ? "pt-14" : ""}`}>
-        {/* Plan label */}
-        <div className="mb-4">
-          <span className="text-[#8a8a8a] text-xs font-bold uppercase tracking-widest">{plan.label}</span>
+      <div className={`p-5 flex flex-col h-full ${plan.popular ? "pt-10" : ""}`}>
+        <div className="mb-3">
+          <span className="text-[#8a8a8a] text-[10px] font-bold uppercase tracking-widest">{plan.label}</span>
           {savings > 0 && (
-            <span className="ml-2 text-xs font-bold text-[#7EC88A] bg-[#7EC88A]/10 px-2 py-0.5 rounded-full">
+            <span className="ml-2 text-[10px] font-bold text-[#7EC88A] bg-[#7EC88A]/10 px-1.5 py-0.5 rounded-full">
               -{savings}%
             </span>
           )}
         </div>
 
-        {/* Price */}
-        <div className="mb-6">
-          <div className="flex items-baseline gap-2">
-            <span className={`font-display font-black text-5xl ${plan.popular ? "text-[#00A8E1]" : "text-[#ffffff]"}`}>
-              ${plan.price}
+        <div className="mb-4">
+          <div className="flex items-baseline gap-1.5">
+            <span className={`font-display font-black text-4xl ${plan.popular ? "text-[#00A8E1]" : "text-[#ffffff]"}`}>
+              ${deviceOptions[selectedDevice].price}
             </span>
-            <span className="text-[#8a8a8a] text-sm">total</span>
+            <span className="text-[#8a8a8a] text-[10px]">total</span>
           </div>
           <div className="flex items-center gap-2 mt-1">
-            <span className="text-[#8a8a8a] text-sm line-through">${plan.originalPrice}</span>
-            <span className="text-[#7EC88A] text-xs font-semibold">Save ${plan.originalPrice - plan.price}</span>
+            <span className="text-[#8a8a8a] text-[10px] line-through">${plan.originalPrice + (selectedDevice * (index < 2 ? 8 : 10))}</span>
+            <span className="text-[#7EC88A] text-[9px] font-semibold">Save ${(plan.originalPrice + (selectedDevice * (index < 2 ? 8 : 10))) - deviceOptions[selectedDevice].price}</span>
           </div>
         </div>
 
-        {/* Features */}
-        <ul className="flex-1 space-y-2.5 mb-8">
+        <ul className="flex-1 space-y-1.5 mb-5">
           {plan.features.map((feat) => (
-            <li key={feat} className="flex items-start gap-2.5 text-sm">
+            <li key={feat} className="flex items-start gap-2 text-[11px]">
               <span
-                className="mt-0.5 w-4 h-4 flex-shrink-0 rounded-full flex items-center justify-center text-[10px]"
+                className="mt-0.5 w-3.5 h-3.5 flex-shrink-0 rounded-full flex items-center justify-center text-[8px]"
                 style={{ background: plan.popular ? "rgba(0,168,225,0.3)" : "rgba(255,255,255,0.1)" }}
               >
                 ✓
@@ -139,10 +144,28 @@ function PricingCard({ plan, index }: { plan: typeof PLANS[number]; index: numbe
           ))}
         </ul>
 
-        {/* CTA */}
+        <div className="mb-4">
+          <p className="text-[10px] text-[#8a8a8a] mb-2 uppercase tracking-wider">Select Devices</p>
+          <div className="grid grid-cols-2 gap-1.5">
+            {deviceOptions.map((opt, i) => (
+              <button
+                key={opt.label}
+                onClick={() => setSelectedDevice(i)}
+                className={`py-1.5 px-2 rounded-lg text-[10px] font-medium transition-all ${
+                  selectedDevice === i
+                    ? "bg-[#00A8E1] text-white"
+                    : "bg-white/5 text-[#8a8a8a] hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                {opt.label} — ${opt.price}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <button
           onClick={scrollToPricing}
-          className={`block w-full text-center py-3.5 rounded-xl font-bold text-sm transition-all duration-300 cursor-pointer ${
+          className={`block w-full text-center py-2.5 rounded-xl font-bold text-[11px] transition-all duration-300 cursor-pointer ${
             plan.popular
               ? "btn-primary animate-[glowPulse_3s_ease-in-out_infinite]"
               : "btn-outline hover:btn-primary"

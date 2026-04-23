@@ -15,7 +15,7 @@ export default function Features() {
         {/* Header */}
         <div className="text-center mb-16 reveal">
           <span className="inline-block text-xs font-bold tracking-[0.25em] uppercase text-[#00A8E1] mb-4 px-3 py-1 rounded-full border border-[#00A8E1]/30 bg-[#00A8E1]/10">
-            Why StreamVault
+            Why PrimeStream
           </span>
           <h2 className="text-4xl md:text-6xl font-bold text-[#ffffff] mb-4">
             Everything You Need,{" "}

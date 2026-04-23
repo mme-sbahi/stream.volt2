@@ -185,7 +185,7 @@ export const TESTIMONIALS = [
     country: "🇺🇸",
     rating: 5,
     avatar: "MJ",
-    review: "Switched from 3 other IPTV providers. StreamVault is on another level — zero buffering, insane channel selection. Worth every penny.",
+    review: "Switched from 3 other IPTV providers. PrimeStream is on another level — zero buffering, insane channel selection. Worth every penny.",
   },
   {
     name: "Sofia L.",
@@ -231,7 +231,7 @@ export const FAQS = [
   },
   {
     question: "Is it compatible with my device?",
-    answer: "Yes! StreamVault works on Smart TVs (Samsung, LG, Sony), Android TV boxes, Firestick, iOS and Android phones/tablets, Mac and Windows PCs, and Chromecast. Any device that supports IPTV apps or VLC is compatible.",
+    answer: "Yes! PrimeStream works on Smart TVs (Samsung, LG, Sony), Android TV boxes, Firestick, iOS and Android phones/tablets, Mac and Windows PCs, and Chromecast. Any device that supports IPTV apps or VLC is compatible.",
   },
   {
     question: "How do I receive my login credentials?",
@@ -302,6 +302,6 @@ export const NAV_LINKS = [
   { href: "#features", label: "Features" },
   { href: "#content", label: "Content" },
   { href: "#pricing", label: "Pricing" },
-  { href: "#compatible-devices", label: "Devices" },
+  { href: "#devices", label: "Devices" },
   { href: "#faq", label: "FAQ" },
 ] as const;

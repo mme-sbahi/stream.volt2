@@ -1,4 +1,4 @@
-# 🎬 StreamVault — Premium IPTV Landing Page
+# 🎬 PrimeStream — Premium IPTV Landing Page
 
 A high-converting IPTV subscription website built with **Next.js 14** + **Tailwind CSS**.  
 Designed with a Netflix-style UI, SaaS-level UX, and full conversion optimization.
@@ -23,7 +23,7 @@ http://localhost:3000
 ## 🗂️ Project Structure
 
 ```
-streamvault-iptv/
+PrimeStream-iptv/
 │
 ├── app/
 │   ├── globals.css          # Global styles, CSS variables, animations
@@ -90,7 +90,7 @@ export const PLANS = [
 ### 🏢 Site Info
 ```ts
 export const SITE_META = {
-  name: "StreamVault",           // ← your brand name
+  name: "PrimeStream",           // ← your brand name
   email: "support@yoursite.tv", // ← your email
   whatsapp: "+1 (555) 000-0000",
   telegram: "@yourtelegram",
@@ -190,4 +190,4 @@ npm start
 
 ---
 
-*Built with ❤️ — StreamVault IPTV Landing Page*
+*Built with ❤️ — PrimeStream IPTV Landing Page*

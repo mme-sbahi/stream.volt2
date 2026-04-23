@@ -4,70 +4,70 @@ import { useState, memo, useCallback } from "react";
 import { useReveal } from "@/components/ui/useReveal";
 import { scrollToPricing } from "@/lib/utils";
 
-const VERIFIED_POSTERS = [
-  "https://image.tmdb.org/t/p/w500/1pdfLvkbY9ohJlCjQH2CZjjYVvJ.jpg",
-  "https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
-  "https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
-  "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg",
-  "https://image.tmdb.org/t/p/w500/62HCnUTziyWcpDaBO2i1DX17ljH.jpg",
-  "https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
-  "https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
-  "https://image.tmdb.org/t/p/w500/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg",
-  "https://image.tmdb.org/t/p/w500/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg",
-  "https://image.tmdb.org/t/p/w500/7QMsOTMUswlwxJP0rTTZfmz2tX2.jpg",
-  "https://image.tmdb.org/t/p/w500/2zmTngn1tYC1AvfnrFLhxeD82hz.jpg",
-  "https://image.tmdb.org/t/p/w500/49WJfeN0moxb9IPfGn8AIqMGskD.jpg",
-  "https://image.tmdb.org/t/p/w500/eU1i6eHXlzMOlEq0ku1Rzq7Y4wA.jpg",
-  "https://image.tmdb.org/t/p/w500/z0XiwdrCQ9yVIr4O0pxzaAYRxdW.jpg",
-  "https://image.tmdb.org/t/p/w500/7vjaCdMw15FEbXyLQTVa04URsPm.jpg",
-  "https://image.tmdb.org/t/p/w500/9PFonBhy4cQy7Jz20NpMygczOkv.jpg",
-  "https://image.tmdb.org/t/p/w500/7O4iVfOMQmdCSxhOg1WnzG1AgYT.jpg",
-  "https://image.tmdb.org/t/p/w500/7vjaCdMw15FEbXyLQTVa04URsPm.jpg",
-  "https://image.tmdb.org/t/p/w500/AnsSKR9LuK0T9bAOcPVA3PUvyWj.jpg",
-  "https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg",
+// ============================================================================
+// ADD YOUR POSTER IMAGES HERE - Just add the URLs to this array
+// The posters will be automatically assigned to each content item
+// Example: "https://example.com/poster.jpg"
+// ============================================================================
+const POSTER_URLS: string[] = [
+  // Add your poster URLs here, for example:
+  // "https://image.tmdb.org/t/p/w500/your-poster-1.jpg",
+  // "https://image.tmdb.org/t/p/w500/your-poster-2.jpg",
+  // "https://image.tmdb.org/t/p/w500/your-poster-3.jpg",
 ];
 
+// Or you can map specific titles to specific posters:
 const POSTER_MAP: Record<string, string> = {
-  "Dune: Part Two": VERIFIED_POSTERS[0],
-  Oppenheimer: VERIFIED_POSTERS[1],
-  "John Wick: Chapter 4": VERIFIED_POSTERS[2],
-  "The Batman": VERIFIED_POSTERS[3],
-  "Top Gun: Maverick": VERIFIED_POSTERS[4],
-  Barbie: VERIFIED_POSTERS[5],
-  "Deadpool & Wolverine": VERIFIED_POSTERS[6],
-  "Inside Out 2": VERIFIED_POSTERS[7],
-  "The Last of Us": VERIFIED_POSTERS[8],
-  "House of the Dragon": VERIFIED_POSTERS[9],
-  "The Boys": VERIFIED_POSTERS[10],
-  "Stranger Things": VERIFIED_POSTERS[11],
-  "The Mandalorian": VERIFIED_POSTERS[12],
-  Succession: VERIFIED_POSTERS[13],
-  "The Witcher": VERIFIED_POSTERS[14],
-  Wednesday: VERIFIED_POSTERS[15],
-  Shogun: VERIFIED_POSTERS[16],
-  "The Bear": VERIFIED_POSTERS[12],
-  Fallout: VERIFIED_POSTERS[18],
-  "Dark Matter": VERIFIED_POSTERS[19],
-  "Slow Horses": VERIFIED_POSTERS[14],
-  Severance: VERIFIED_POSTERS[16],
-  "3 Body Problem": VERIFIED_POSTERS[18],
-  "The Crown": VERIFIED_POSTERS[13],
-  "Thunderbolts*": VERIFIED_POSTERS[0],
-  "Mission: Impossible 8": VERIFIED_POSTERS[1],
-  Sinners: VERIFIED_POSTERS[2],
-  "The Fantastic Four": VERIFIED_POSTERS[3],
-  Superman: VERIFIED_POSTERS[4],
-  Elio: VERIFIED_POSTERS[5],
-  "Avatar: Fire and Ash": VERIFIED_POSTERS[6],
-  "Jurassic World: Rebirth": VERIFIED_POSTERS[7],
-  "The Bride!": VERIFIED_POSTERS[8],
-  "Project Hail Mary": VERIFIED_POSTERS[9],
-  "Super Mario Galaxy Movie": VERIFIED_POSTERS[10],
-  "Scream 7": VERIFIED_POSTERS[11],
-  Hoppers: VERIFIED_POSTERS[12],
-  GOAT: VERIFIED_POSTERS[13],
-  Keeper: VERIFIED_POSTERS[14],
-  "The Accountant 2": VERIFIED_POSTERS[15],
+  // "Title Name": "https://example.com/poster.jpg",
+  "Mission: Impossible 8" : "https://www.joblo.com/wp-content/uploads/2025/02/tom-cruise-last-mission-impossible-movie.jpg",
+  "Thunderbolts*" : "https://preview.redd.it/new-poster-for-thunderbolts-v0-c2ez7p4cc7ie1.jpeg?auto=webp&s=0c201be91617b9c88a6afebd324afd4974ffe26c",
+  "Sinners" : "https://assets.bigcartel.com/product_images/99ee7a65-3ca9-43b4-b587-e09ff13dfd7e/sinners-poster.jpg?auto=format&fit=max&w=2000",
+  "The Fantastic Four" : "https://lumiere-a.akamaihd.net/v1/images/fantastic_4_1_sheet_new_cta_dbb14854.jpeg",
+  "Jurassic World: Rebirth" : "https://m.media-amazon.com/images/M/MV5BNjg2NTcwYWQtYzk4NS00MTJhLWEzZjItMzIxNjk3YzlkYzU0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+  "Superman" : "https://i.ebayimg.com/images/g/GU0AAOSw-6RoXMdt/s-l1200.jpg",
+
+  "Premier League": "https://i.pinimg.com/736x/7a/09/34/7a0934d0776d2475193596e0e3e0dcec.jpg",
+  "NBA Finals" : "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/678b8666663789.5b1e629f7e15e.jpg", 
+  "UFC 310" : "https://i.ebayimg.com/images/g/Y4gAAOSwgKhnanJR/s-l1200.jpg",
+  "Formula 1 GP" : "https://letitiamorris.com/wp-content/uploads/2025/07/united-states-.jpg",
+  "Champions League" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxE_5BKHef-u5soZaHoFcCTqHd9l9pkWrDrQ&s",
+  "Wimbledon" : "https://cdn.scoopempire.com/wp-content/uploads/2016/06/Jaziri-715x476.jpg",
+
+  "WWE WrestleMania" : "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781608878253/wwe-wrestlemania-the-official-poster-collection-9781608878253_hr.jpg",
+  "boxing Match" : "https://i.pinimg.com/736x/7e/8e/52/7e8e52e181bf70949129b549b133df9e.jpg",
+  "MMA Fight Night" : "https://flyerheroes.com/wp-content/uploads/edd/2014/05/MMA-Fight-Night-1.jpg",
+  "UFC Pay-Per-View" : "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/25857b100617953.632f41cb8e827.jpg",
+  "boxing Championship" : "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/boxing-championship-fight-flyer-design-template-b7c01fa1287df404f2b3e9ba60e4c207_screen.jpg?ts=1677599732",
+  "Bellator MMA" : "https://lh6.googleusercontent.com/proxy/XN5bddQutrpF82nfgF2i2o6XMkvAAjCxdni_16KSl1j7wVkp0azJle38Wu3pTx6M1TW6WH_CEm0BvGezjOgJrLAkGUzuSYkKjro4Kw",
+
+  "The Last of Us" : "https://i0.wp.com/bloody-disgusting.com/wp-content/uploads/2022/11/last-of-us-tv-1.png?ssl=1",
+  "House of the Dragon" : "https://cdn.europosters.eu/image/1300/143695.jpg",
+  "The Boys": "https://m.media-amazon.com/images/M/MV5BZjU4OWNiYzQtMzc1NS00NjZlLTgyYTctZWY4ZmEzMTkxYjA4XkEyXkFqcGc@._V1_.jpg",
+  "Stranger Things" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1mJVTNucsCTCSZX4JMZHj38z7iNE2GNBIrA&s",
+  "The Mandalorian" : "https://i.redd.it/a7ghxpzj1bv31.png",
+  "Succession" : "https://original.fontsinuse.com/fontsinuse.com/use-images/N202/202222/202222.jpeg",
+
+  "Bluey" :"https://m.media-amazon.com/images/I/610Aj6kygcL.jpg",
+  "Paw Patrol": "https://m.media-amazon.com/images/I/81lrqdAQywL.jpg",
+  "Peppa Pig": "https://static.posters.cz/image/1300/11907.jpg",
+  "SpongeBob": "https://image.tmdb.org/t/p/original/amvtZgiTty0GHIgD56gpouBWrcy.jpg",
+  "Cocomelon": "https://lh6.googleusercontent.com/proxy/L-MDOxqZXnVZ7HpOhMIzf-W1uehouFhLTWYLeSfZFWXhVrqvwQO75Zd08iRE7yy69aHcazUddGkgJACWE-BJmJ-ltyksx10E",
+  "Avatar: TLA": "https://m.media-amazon.com/images/I/71ZxVE+dYXL._AC_UF1000,1000_QL80_.jpg",
+
+  "Star Wars: Andor" : "https://m.media-amazon.com/images/I/81vRGqjEJ0L.jpg",
+  "The Acolyte" : "https://image.tmdb.org/t/p/original/yuCKJsbzzadXh6tMUsIwZ2zaKXy.jpg",
+  "Avatar: Frontiers" : "https://static.wikia.nocookie.net/jamescameronsavatar/images/6/64/FOP_boxart.png/revision/latest/scale-to-width-down/1200?cb=20240123110407",
+  "Inside Out 3" : "https://m.media-amazon.com/images/I/714xn6rxXSL.jpg",
+  "Moana 2" : "https://m.media-amazon.com/images/I/81rjqvHFtkL._AC_UF894,1000_QL80_.jpg",
+  "Zootopia 2" : "https://lumiere-a.akamaihd.net/v1/images/p_disneymovies_zootopia_poster_v2_a1e31204.jpeg",
+
+  "CNN Live": "https://media.cnn.com/api/v1/images//stellar/prod/2426775-cnn-cnnnewscentral-2023-2432x1369-cnngo.jpg",
+  "BBC News" : "https://ichef.bbci.co.uk/news/1024/branded_news/14A5/production/_132558250_p0bvs4dq-3.jpg",
+  "Fox News" : "https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2021/11/290/435/83544729-fox-and-friends-first-poster.png?ve=1&tl=1",
+  "Sky News" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnlnA1AIjCY-S3lF4gWXrVqJ2Vz0FYP9Bcmg&s",
+  "Al Jazeera" : "https://m.media-amazon.com/images/M/MV5BYTFjYzdmMDQtNzYwYi00MDBmLWIyNzctYTQ2ZGYzM2FiZDI4XkEyXkFqcGc@._V1_.jpg",
+  "Euronews" : "https://pbs.twimg.com/profile_images/1594718198049406976/m8DZS7n2_400x400.jpg",
+
 };
 
 interface Movie {
@@ -85,8 +85,8 @@ interface Category {
 
 const CATEGORIES: Category[] = [
   {
-    label: "🔥 TRENDING NOW",
-    icon: "⚡",
+    label: "🎬 MOVIES",
+    icon: "🎬",
     items: [
       { title: "Thunderbolts*", year: "2025", rating: "4.7", quality: "4K" },
       { title: "Mission: Impossible 8", year: "2025", rating: "4.8", quality: "4K" },
@@ -94,40 +94,34 @@ const CATEGORIES: Category[] = [
       { title: "The Fantastic Four", year: "2025", rating: "4.6", quality: "4K" },
       { title: "Jurassic World: Rebirth", year: "2025", rating: "4.5", quality: "HD" },
       { title: "Superman", year: "2025", rating: "4.8", quality: "4K" },
-      { title: "Elio", year: "2025", rating: "4.4", quality: "HD" },
-      { title: "The Accountant 2", year: "2025", rating: "4.6", quality: "HD" },
     ],
   },
   {
-    label: "🎬 NEW RELEASES",
-    icon: "🎬",
+    label: "⚽ SPORTS",
+    icon: "⚽",
     items: [
-      { title: "The Bride!", year: "2026", rating: "4.5", quality: "HD" },
-      { title: "Project Hail Mary", year: "2026", rating: "4.7", quality: "TS" },
-      { title: "Super Mario Galaxy Movie", year: "2026", rating: "4.8", quality: "TS" },
-      { title: "Scream 7", year: "2026", rating: "4.5", quality: "HD" },
-      { title: "Avatar: Fire and Ash", year: "2025", rating: "4.9", quality: "HD" },
-      { title: "Hoppers", year: "2026", rating: "4.3", quality: "DCP" },
-      { title: "GOAT", year: "2026", rating: "4.5", quality: "HD" },
-      { title: "Keeper", year: "2025", rating: "4.5", quality: "HD" },
+      { title: "Premier League", year: "LIVE", rating: "4.9", quality: "4K" },
+      { title: "NBA Finals", year: "LIVE", rating: "4.8", quality: "4K" },
+      { title: "UFC 310", year: "LIVE", rating: "4.7", quality: "HD" },
+      { title: "Formula 1 GP", year: "LIVE", rating: "4.9", quality: "4K" },
+      { title: "Champions League", year: "LIVE", rating: "4.8", quality: "4K" },
+      { title: "Wimbledon", year: "LIVE", rating: "4.7", quality: "HD" },
     ],
   },
   {
-    label: "🎥 BLOCKBUSTERS",
-    icon: "🍿",
+    label: "🏆 PPV EVENTS",
+    icon: "🏆",
     items: [
-      { title: "Dune: Part Two", year: "2024", rating: "4.9", quality: "4K" },
-      { title: "Oppenheimer", year: "2023", rating: "4.9", quality: "4K" },
-      { title: "John Wick: Chapter 4", year: "2023", rating: "4.7", quality: "4K" },
-      { title: "The Batman", year: "2022", rating: "4.6", quality: "4K" },
-      { title: "Top Gun: Maverick", year: "2022", rating: "4.8", quality: "4K" },
-      { title: "Barbie", year: "2023", rating: "4.6", quality: "HD" },
-      { title: "Deadpool & Wolverine", year: "2024", rating: "4.7", quality: "4K" },
-      { title: "Inside Out 2", year: "2024", rating: "4.8", quality: "4K" },
+      { title: "WWE WrestleMania", year: "LIVE", rating: "4.9", quality: "4K" },
+      { title: "boxing Match", year: "LIVE", rating: "4.8", quality: "4K" },
+      { title: "MMA Fight Night", year: "LIVE", rating: "4.7", quality: "HD" },
+      { title: "UFC Pay-Per-View", year: "LIVE", rating: "4.9", quality: "4K" },
+      { title: "boxing Championship", year: "LIVE", rating: "4.8", quality: "4K" },
+      { title: "Bellator MMA", year: "LIVE", rating: "4.6", quality: "HD" },
     ],
   },
   {
-    label: "📺 TOP SERIES",
+    label: "📺 SERIES",
     icon: "📺",
     items: [
       { title: "The Last of Us", year: "2023", rating: "4.9", quality: "S2" },
@@ -136,22 +130,42 @@ const CATEGORIES: Category[] = [
       { title: "Stranger Things", year: "2024", rating: "4.8", quality: "S5" },
       { title: "The Mandalorian", year: "2023", rating: "4.7", quality: "S3" },
       { title: "Succession", year: "2023", rating: "4.9", quality: "S4" },
-      { title: "The Witcher", year: "2023", rating: "4.6", quality: "S3" },
-      { title: "Wednesday", year: "2022", rating: "4.6", quality: "S2" },
     ],
   },
   {
-    label: "👑 PREMIUM PICKS",
-    icon: "👑",
+    label: "👶 KIDS",
+    icon: "👶",
     items: [
-      { title: "The Crown", year: "2023", rating: "4.7", quality: "S6" },
-      { title: "Shogun", year: "2024", rating: "4.9", quality: "S1" },
-      { title: "The Bear", year: "2024", rating: "4.8", quality: "S3" },
-      { title: "Fallout", year: "2024", rating: "4.7", quality: "S1" },
-      { title: "3 Body Problem", year: "2024", rating: "4.5", quality: "S1" },
-      { title: "Slow Horses", year: "2024", rating: "4.8", quality: "S4" },
-      { title: "Severance", year: "2025", rating: "4.9", quality: "S2" },
-      { title: "Dark Matter", year: "2024", rating: "4.6", quality: "S1" },
+      { title: "Bluey", year: "2024", rating: "4.9", quality: "S4" },
+      { title: "Paw Patrol", year: "2024", rating: "4.8", quality: "S10" },
+      { title: "Peppa Pig", year: "FULL", rating: "4.7", quality: "HD" },
+      { title: "SpongeBob", year: "FULL", rating: "4.8", quality: "HD" },
+      { title: "Cocomelon", year: "2024", rating: "4.9", quality: "S8" },
+      { title: "Avatar: TLA", year: "FULL", rating: "4.9", quality: "HD" },
+    ],
+  },
+  {
+    label: "🦄 DISNEY+",
+    icon: "🏰",
+    items: [
+      { title: "Star Wars: Andor", year: "2024", rating: "4.9", quality: "S3" },
+      { title: "The Acolyte", year: "2024", rating: "4.5", quality: "S1" },
+      { title: "Avatar: Frontiers", year: "2024", rating: "4.7", quality: "4K" },
+      { title: "Inside Out 3", year: "2025", rating: "4.8", quality: "4K" },
+      { title: "Moana 2", year: "2024", rating: "4.9", quality: "4K" },
+      { title: "Zootopia 2", year: "2025", rating: "4.7", quality: "4K" },
+    ],
+  },
+  {
+    label: "📰 NEWS",
+    icon: "📰",
+    items: [
+      { title: "CNN Live", year: "LIVE", rating: "4.5", quality: "HD" },
+      { title: "BBC News", year: "LIVE", rating: "4.6", quality: "HD" },
+      { title: "Fox News", year: "LIVE", rating: "4.4", quality: "HD" },
+      { title: "Sky News", year: "LIVE", rating: "4.7", quality: "HD" },
+      { title: "Al Jazeera", year: "LIVE", rating: "4.5", quality: "HD" },
+      { title: "Euronews", year: "LIVE", rating: "4.6", quality: "HD" },
     ],
   },
 ];
@@ -204,7 +218,7 @@ export default function ContentPreview() {
 
         <div className="space-y-10 md:space-y-12">
           {CATEGORIES.map((category, catIdx) => (
-            <div key={category.label}>
+            <div key={category.label} className="reveal opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]" style={{ animationDelay: `${catIdx * 0.15}s` }}>
               <div className="flex items-center justify-between mb-4 px-2">
                 <div className="flex items-center gap-2">
                   <span className="text-xl md:text-2xl">{category.icon}</span>
@@ -232,7 +246,7 @@ export default function ContentPreview() {
                   style={{ width: "max-content" }}
                 >
                   {category.items.map((item, idx) => {
-                    const posterUrl = POSTER_MAP[item.title] || VERIFIED_POSTERS[(catIdx * 8 + idx) % VERIFIED_POSTERS.length];
+                    const posterUrl = POSTER_MAP[item.title] || POSTER_URLS[(catIdx * 6 + idx) % POSTER_URLS.length] || "";
                     return (
                       <ContentCard
                         key={`${catIdx}-${idx}`}
@@ -247,7 +261,7 @@ export default function ContentPreview() {
                         }
                         onHover={() => handleHover(catIdx, idx)}
                         onLeave={handleLeave}
-                        delay={idx * 30}
+                        delay={idx * 50}
                       />
                     );
                   })}
@@ -304,6 +318,15 @@ const ContentCard = memo(function ContentCard({
 }) {
   const [imageError, setImageError] = useState(false);
 
+  const getCategoryEmoji = () => {
+    if (title.includes("League") || title.includes("NBA") || title.includes("UFC") || title.includes("Formula") || title.includes("Wimbledon") || title.includes("Champions")) return "⚽";
+    if (title.includes("WWE") || title.includes("MMA") || title.includes("boxing") || title.includes("Bellator")) return "🥊";
+    if (title.includes("Bluey") || title.includes("Paw") || title.includes("Peppa") || title.includes("Sponge") || title.includes("Cocomelon") || title.includes("Avatar")) return "👶";
+    if (title.includes("Star Wars") || title.includes("Andor") || title.includes("Acolyte") || title.includes("Avatar: Frontiers") || title.includes("Inside Out") || title.includes("Moana") || title.includes("Zootopia")) return "🏰";
+    if (title.includes("CNN") || title.includes("BBC") || title.includes("Fox") || title.includes("Sky") || title.includes("Al Jazeera") || title.includes("Euronews")) return "📺";
+    return "🎬";
+  };
+
   return (
     <div
       className="content-card group w-36 md:w-44 flex-shrink-0 cursor-pointer transition-all duration-300 hover:scale-105"
@@ -325,7 +348,7 @@ const ContentCard = memo(function ContentCard({
         {(!posterUrl || imageError) && (
           <div className="absolute inset-0 bg-gradient-to-br from-[#0077A8]/40 to-[#00A8E1]/40 flex flex-col items-center justify-center p-4">
             <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-white/10 flex items-center justify-center text-2xl md:text-3xl mb-3 backdrop-blur-sm">
-              🎬
+              {getCategoryEmoji()}
             </div>
             <p className="text-white text-xs md:text-sm font-bold text-center leading-tight line-clamp-2">
               {title}

@@ -1,21 +1,25 @@
 import { SITE_META } from "@/config/site.config";
 
 const LOGOS = [
-  { icon: "💳", label: "Visa" },
-  { icon: "💳", label: "Mastercard" },
-  { icon: "🅿️", label: "PayPal" },
-  { icon: "₿", label: "Crypto" },
-  { icon: "🖥️", label: "Smart TV" },
+  { icon: "💰", label: "Visa" },
+  { icon: "💳", label: "MasterCard" },
+  { icon: "💵", label: "PayPal" },
+  { icon: "🪙", label: "Crypto" },
+  { icon: "📺", label: "Smart TV" },
   { icon: "📱", label: "Mobile" },
   { icon: "💻", label: "PC / Mac" },
   { icon: "🔥", label: "Firestick" },
+  { icon: "📡", label: "Roku" },
+  { icon: "🤖", label: "Android" },
+  { icon: "🍎", label: "Apple TV" },
+  { icon: "🎮", label: "Gaming" },
 ];
 
 const REPEATS = [...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS];
 
 export default function TrustBar() {
   return (
-    <section className="py-6 border-y border-white/5 overflow-hidden relative bg-[#0d0d0d]">
+    <section className="py-8 border-y border-white/5 overflow-hidden relative bg-[#0d0d0d]">
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -24,7 +28,7 @@ export default function TrustBar() {
         }}
       />
 
-      <div className="flex items-center gap-8 mb-4 justify-center flex-wrap px-6">
+      <div className="flex items-center gap-8 mb-6 justify-center flex-wrap px-6">
         <div className="flex items-center gap-2">
           <div className="flex -space-x-1">
             {["👤","👤","👤"].map((u, i) => (
@@ -51,9 +55,11 @@ export default function TrustBar() {
       <div className="marquee-container">
         <div className="marquee-track">
           {REPEATS.map((item, i) => (
-            <div key={i} className="inline-flex items-center gap-2 mx-6 text-[#8a8a8a] hover:text-[#ffffff] transition-colors">
-              <span className="text-xl">{item.icon}</span>
-              <span className="text-sm font-medium">{item.label}</span>
+            <div key={i} className="inline-flex flex-col items-center justify-center mx-10 text-[#ffffff] hover:text-[#00A8E1] transition-colors min-w-[100px]">
+              <div className="w-20 h-20 flex items-center justify-center">
+                <span className="text-5xl">{item.icon}</span>
+              </div>
+              <span className="text-sm font-bold mt-1">{item.label}</span>
             </div>
           ))}
         </div>
