@@ -85,8 +85,8 @@ interface Category {
 
 const CATEGORIES: Category[] = [
   {
-    label: "🎬 MOVIES",
-    icon: "🎬",
+    label: "MOVIES",
+    icon: "🎞️",
     items: [
       { title: "Thunderbolts*", year: "2025", rating: "4.7", quality: "4K" },
       { title: "Mission: Impossible 8", year: "2025", rating: "4.8", quality: "4K" },
@@ -97,7 +97,7 @@ const CATEGORIES: Category[] = [
     ],
   },
   {
-    label: "⚽ SPORTS",
+    label: "SPORTS",
     icon: "⚽",
     items: [
       { title: "Premier League", year: "LIVE", rating: "4.9", quality: "4K" },
@@ -109,19 +109,19 @@ const CATEGORIES: Category[] = [
     ],
   },
   {
-    label: "🏆 PPV EVENTS",
-    icon: "🏆",
+    label: "PPV",
+    icon: "🥊",
     items: [
       { title: "WWE WrestleMania", year: "LIVE", rating: "4.9", quality: "4K" },
-      { title: "boxing Match", year: "LIVE", rating: "4.8", quality: "4K" },
+      { title: "Boxing Match", year: "LIVE", rating: "4.8", quality: "4K" },
       { title: "MMA Fight Night", year: "LIVE", rating: "4.7", quality: "HD" },
       { title: "UFC Pay-Per-View", year: "LIVE", rating: "4.9", quality: "4K" },
-      { title: "boxing Championship", year: "LIVE", rating: "4.8", quality: "4K" },
+      { title: "Boxing Championship", year: "LIVE", rating: "4.8", quality: "4K" },
       { title: "Bellator MMA", year: "LIVE", rating: "4.6", quality: "HD" },
     ],
   },
   {
-    label: "📺 SERIES",
+    label: "SERIES",
     icon: "📺",
     items: [
       { title: "The Last of Us", year: "2023", rating: "4.9", quality: "S2" },
@@ -133,8 +133,8 @@ const CATEGORIES: Category[] = [
     ],
   },
   {
-    label: "👶 KIDS",
-    icon: "👶",
+    label: "KIDS",
+    icon: "🧒",
     items: [
       { title: "Bluey", year: "2024", rating: "4.9", quality: "S4" },
       { title: "Paw Patrol", year: "2024", rating: "4.8", quality: "S10" },

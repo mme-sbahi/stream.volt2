@@ -1,16 +1,16 @@
 "use client";
 
 const DEVICES = [
-  { name: "Mac & PC", icon: "💻" },
-  { name: "Xbox", icon: "🎮" },
-  { name: "Apple TV", icon: "🍎" },
+  { name: "Smart TV", icon: "📺" },
   { name: "Fire TV", icon: "🔥" },
-  { name: "Roku", icon: "📡" },
-  { name: "LG Smart TV", icon: "📺" },
-  { name: "Samsung", icon: "📺" },
-  { name: "IPTV Box", icon: "📦" },
-  { name: "Android TV", icon: "🤖" },
-  { name: "Consoles", icon: "🎮" },
+  { name: "Android", icon: "🤖" },
+  { name: "iPhone", icon: "📱" },
+  { name: "PC", icon: "💻" },
+  { name: "Mac", icon: "💻" },
+  { name: "iPad", icon: "⬜" },
+  { name: "Android TV", icon: "📺" },
+  { name: "Chromecast", icon: "📺" },
+  { name: "Mag Box", icon: "📦" },
 ];
 
 const REPEATS = [...DEVICES, ...DEVICES, ...DEVICES, ...DEVICES];
@@ -26,10 +26,10 @@ export default function CompatibleDevices() {
             Universal Compatibility
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#ffffff] mb-4">
-            Compatible With <span className="text-gradient-unlimited">All Devices</span>
+            Watch on <span className="text-gradient-unlimited">Any Device</span>
           </h2>
           <p className="text-[#8a8a8a] text-lg max-w-xl mx-auto">
-            Watch live TV, series, and movies at home or on-the-go. Zero freeze, real-time streaming, and no delays.
+            Stream on your big screen, laptop, or mobile. One account, unlimited screens.
           </p>
         </div>
 
@@ -48,7 +48,7 @@ export default function CompatibleDevices() {
         </div>
 
         <p className="text-center mt-10 text-[#8a8a8a] text-sm">
-          Works with any device supporting IPTV apps, VLC, or m3u playlists. No restrictions.
+          Compatible with Firestick, Smart TV, Android, iOS, PC, Mag Box, and more.
         </p>
       </div>
     </section>

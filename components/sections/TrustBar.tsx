@@ -1,21 +1,21 @@
 import { SITE_META } from "@/config/site.config";
 
-const LOGOS = [
-  { icon: "💰", label: "Visa" },
-  { icon: "💳", label: "MasterCard" },
-  { icon: "💵", label: "PayPal" },
-  { icon: "🪙", label: "Crypto" },
-  { icon: "📺", label: "Smart TV" },
-  { icon: "📱", label: "Mobile" },
-  { icon: "💻", label: "PC / Mac" },
-  { icon: "🔥", label: "Firestick" },
-  { icon: "📡", label: "Roku" },
-  { icon: "🤖", label: "Android" },
-  { icon: "🍎", label: "Apple TV" },
-  { icon: "🎮", label: "Gaming" },
+const CHANNELS = [
+  { icon: "📺", label: "Live TV" },
+  { icon: "🎬", label: "Movies" },
+  { icon: "⚽", label: "Sports" },
+  { icon: "🏈", label: "NFL" },
+  { icon: "🏀", label: "NBA" },
+  { icon: "🥊", label: "PPV" },
+  { icon: "🌎", label: "Global" },
+  { icon: "📽", label: "VOD" },
+  { icon: "🎮", label: "Esports" },
+  { icon: "🎤", label: "Music" },
+  { icon: "🧩", label: "DOCS" },
+  { icon: "🧸", label: "Kids" },
 ];
 
-const REPEATS = [...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS];
+const REPEATS = [...CHANNELS, ...CHANNELS, ...CHANNELS, ...CHANNELS];
 
 export default function TrustBar() {
   return (
@@ -51,7 +51,6 @@ export default function TrustBar() {
         </div>
       </div>
 
-      {/* Marquee */}
       <div className="marquee-container">
         <div className="marquee-track">
           {REPEATS.map((item, i) => (

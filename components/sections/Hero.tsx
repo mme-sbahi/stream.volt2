@@ -5,10 +5,10 @@ import { SITE_META } from "@/config/site.config";
 import { scrollToPricing } from "@/lib/utils";
 
 const FEATURES = [
-  { icon: "🎧", label: "24/7 Support" },
-  { icon: "⚡", label: "Instant Activation" },
-  { icon: "📶", label: "No Buffering" },
-  { icon: "🛡️", label: "Secure Payment" },
+  { icon: "📺", label: "10,000+ Channels" },
+  { icon: "🎬", label: "50,000+ Movies" },
+  { icon: "⚡", label: "Instant Setup" },
+  { icon: "🛡️", label: "Money BackGuarantee" },
 ] as const;
 
 export default function Hero() {

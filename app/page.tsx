@@ -11,17 +11,10 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import Pricing from "@/components/sections/Pricing";
 import { Testimonials, FAQ, Footer } from "@/components/sections/Others";
 
-type Section = "home" | "features" | "devices" | "content" | "pricing" | "testimonials" | "faq";
-
 export default function HomePage() {
-  const handleNavigate = (section: Section) => {
-    const id = section === "home" ? "hero" : section;
-    document.getElementById(id)?.scrollIntoView();
-  };
-
   return (
     <main>
-      <Navbar onNavigate={handleNavigate} />
+      <Navbar />
       <Hero />
       <TrustBar />
       <Features />

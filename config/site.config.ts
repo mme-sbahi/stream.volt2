@@ -50,7 +50,7 @@ export const TRUST_BADGES = [
 
 export const FEATURES = [
   {
-    icon: "📡",
+    icon: "📺",
     title: "10,000+ Live Channels",
     description: "Access premium channels from 50+ countries in crystal-clear HD & 4K quality.",
   },
@@ -152,31 +152,31 @@ export const STEPS = [
     number: "01",
     title: "Choose Your Plan",
     description: "Pick the subscription that fits your needs. Monthly, quarterly or annual — all include full access.",
-    icon: "🎯",
+    icon: "📋",
   },
   {
     number: "02",
-    title: "Receive Login Instantly",
-    description: "After payment, your credentials are delivered to your email within 60 seconds. No waiting.",
-    icon: "⚡",
+    title: "Get Credentials",
+    description: "Receive your login details instantly via email. Start watching in minutes.",
+    icon: "✉️",
   },
   {
     number: "03",
-    title: "Start Watching Anywhere",
-    description: "Login on any device using our app or m3u link. Setup takes under 2 minutes.",
-    icon: "🎬",
+    title: "Start Streaming",
+    description: "Login on any device and enjoy unlimited entertainment.",
+    icon: "▶️",
   },
 ] as const;
 
 export const DEVICES = [
   { name: "Smart TV", icon: "📺" },
-  { name: "Android TV", icon: "🤖" },
+  { name: "Fire TV", icon: "🔥" },
+  { name: "Android", icon: "🤖" },
   { name: "iPhone", icon: "📱" },
-  { name: "Android", icon: "android" },
-  { name: "Firestick", icon: "🔥" },
-  { name: "Laptop", icon: "💻" },
-  { name: "iPad", icon: "apple" },
-  { name: "Chromecast", icon: "📡" },
+  { name: "PC / Mac", icon: "💻" },
+  { name: "Tablet", icon: "⬜" },
+  { name: "Chromecast", icon: "🔴" },
+  { name: "Mag Box", icon: "📦" },
 ] as const;
 
 export const TESTIMONIALS = [
