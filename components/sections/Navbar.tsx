@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { SITE_META, NAV_LINKS } from "@/config/site.config";
 
-type Section = "home" | "features" | "content" | "pricing" | "devices" | "faq";
+type Section = "home" | "features" | "devices" | "content" | "pricing" | "testimonials" | "faq";
 
 interface NavbarProps {
   onNavigate?: (section: Section) => void;

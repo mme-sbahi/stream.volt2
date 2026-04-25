@@ -4,7 +4,7 @@ import { useReveal } from "@/components/ui/useReveal";
 import { STEPS } from "@/config/site.config";
 
 const scrollToPricing = () => {
-  document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth" });
+  document.getElementById("pricing")?.scrollIntoView();
 };
 
 export default function HowItWorks() {

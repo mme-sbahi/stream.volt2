@@ -17,7 +17,7 @@ const REPEATS = [...DEVICES, ...DEVICES, ...DEVICES, ...DEVICES];
 
 export default function CompatibleDevices() {
   return (
-    <section id="compatible-devices" className="py-24 px-6 relative overflow-hidden bg-[#0d0d0d]">
+    <section id="devices" className="py-24 px-6 relative overflow-hidden bg-[#0d0d0d]">
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 40% at 50% 50%, rgba(0,168,225,0.06), transparent)" }} />
       
       <div className="max-w-6xl mx-auto relative z-10">

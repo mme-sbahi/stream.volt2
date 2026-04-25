@@ -74,7 +74,7 @@ export function Testimonials() {
   const ref = useReveal();
 
   return (
-    <section className="py-24 px-6 relative overflow-hidden bg-[#0d0d0d]">
+    <section id="testimonials" className="py-24 px-6 relative overflow-hidden bg-[#0d0d0d]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#0077A8]/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div ref={ref} className="max-w-7xl mx-auto relative z-10">

@@ -300,8 +300,8 @@ export const CONTENT_CATEGORIES = [
 
 export const NAV_LINKS = [
   { href: "#features", label: "Features" },
+  { href: "#devices", label: "Devices" },
   { href: "#content", label: "Content" },
   { href: "#pricing", label: "Pricing" },
-  { href: "#devices", label: "Devices" },
   { href: "#faq", label: "FAQ" },
 ] as const;
